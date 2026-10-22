@@ -31,3 +31,56 @@ for (let count = 2;; count--) {
   }
 }
 */
+
+
+
+/*
+let evenNumsCount = 0
+let oddNumsCount = 0
+let positiveNumsCount = 0
+let negativeNumsCount = 0
+
+function isEven(number) {
+  if (number % 2 === 0) {
+    return true
+  } else {
+    return false
+  }
+}
+
+function getNumberType(number) {
+  if (number > 0) {
+    return true
+  } else if (number < 0) {
+    return false
+  } else {
+    return "Ноль"
+  }
+}
+
+while (true) {
+  number = +prompt("Введите число: ")
+
+  if (number === 0) {
+    break
+  }
+
+  if (isEven(number)) {
+    evenNumsCount += 1
+  } else {
+    oddNumsCount += 1
+  }
+
+  if (getNumberType(number)) {
+    positiveNumsCount += 1
+  } else {
+    negativeNumsCount += 1
+  }
+}
+
+alert(`
+  Положительных: ${positiveNumsCount}
+  Отрицательных: ${negativeNumsCount}
+  Чётные: ${evenNumsCount}
+  Нечётные: ${oddNumsCount}`)
+  */
