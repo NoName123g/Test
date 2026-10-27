@@ -29,6 +29,9 @@ showUserInfo(user)
 
 
 
+
+
+
 /* Задача 2
 const product = {
   name: "Keyboard",
@@ -113,6 +116,9 @@ alert(`Средняя оценка студентов: ${averageScore}`)
 
 
 
+
+
+
 /* Задача 3
 const product1 = {
   name: "Laptop",
@@ -156,7 +162,7 @@ alert(`Общая стоимость всех товаров: ${product1.price +
 
 
 
-/* Задача 4
+
 const client = {
   name: "Alex",
   balance: 2000,
@@ -308,4 +314,3 @@ function showMenu() {
 }
 
 showMenu()
-*/
