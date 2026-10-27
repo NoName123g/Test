@@ -243,7 +243,7 @@ function blockClient(client) {
 }
 
 function showMenu() {
-  const flag = true
+  let flag = true
   while (flag) {
     let userChoice = +prompt(`
       1 - Проверить баланс
