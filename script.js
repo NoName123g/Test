@@ -1,316 +1,161 @@
 /* Задача 1
-const user = {
-  name: "Alex",
-  age: 25,
-  city: "Berlin",
-  isStudent: true
+const names = ["Анна", "Борис", "Виктор", "Дарья"]
+
+
+for (let i = 0; i < names.length; i++) {
+    console.log(`Участник N${i+1}: ${names[i]}`)
 }
-
-
-const showUserInfo = (user) => {
-  alert(`Зовут ${user.name}, возраст ${user.age}, живет ${user.city}, ${user.isStudent ? "студент" : "не студент"}`)
-}
-
-const isAdult = function(user) {
-  return user.age >= 18 ? true : false
-}
-
-function changeCity(user, newCity) {
-  user.city = newCity
-}
-
-const city = prompt("В каком городе вы живёте?")
-
-changeCity(user, city)
-
-showUserInfo(user)
 */
-
-
-
-
 
 
 
 /* Задача 2
-const product = {
-  name: "Keyboard",
-  price: 100,
-  quantity: 5,
-  discount: 10
-}
+const numbers = [10, 25, 30, 45]
 
-function getDiscountPrice(product) {
-  return product.price - product.discount
-}
+let evenSum = 0
 
-function getTotalPrice(product) {
-  return (product.price - product.discount) * product.quantity
-}
 
-function showProduct(product) {
-  alert(`
-  Товар: ${product.name}
-  Цена: ${product.price}
-  скидка: ${product.discount}%
-  цена со скидкой: ${getDiscountPrice(product)}
-  количество: ${product.quantity}
-  общая стоимость: ${getTotalPrice(product)}`
-  )
-}
+numbers.forEach((num) => {
+    if (num % 2 === 0) {
+        evenSum += num
+        return evenSum
+    }
+})
 
-if (product.quantity <= 0) {
-  console.log("Нет в наличии")
-} else {
-  showProduct(product)
-  if (getTotalPrice(product) > 300) {
-    alert("Покупка дорогая")
-  }
-}
+console.log(evenSum)
 */
-
-
-
-/*
-const student1 = {
-  name: "Alex",
-  age: 20,
-  grade: 85
-}
-
-const student2 = {
-  name: "Maria",
-  age: 19,
-  grade: 95
-}
-
-const student3 = {
-  name: "John",
-  age: 21,
-  grade: 45
-}
-
-
-function getGradeStatus(student) {
-  if (student.grade > 100 || student.grade < 0) {
-    return "Не корректные данные"
-  }
-
-  if (student.grade >= 90 && student.grade <= 100) {
-    return "Отлично"
-  } else if (student.grade >= 70 && student.grade <= 89) {
-    return "Хорошо"
-  } else if (student.grade >= 50 && student.grade <= 69) {
-    return "Удовлетворительно"
-  } else {
-    "Не сдал"
-  }
-}
-
-const sumGrade = student1.grade + student2.grade + student3.grade
-
-const averageScore = sumGrade / 3
-
-alert(`Средняя оценка студентов: ${averageScore}`)
-*/
-
-
-
 
 
 
 /* Задача 3
-const product1 = {
-  name: "Laptop",
-  price: 1000,
-  quantity: 3
-}
+const numbers = [100, 250, 500, 1200]
 
-const product2 = {
-  name: "Mouse",
-  price: 25,
-  quantity: 0
-}
+const discountNumbers = numbers.map((num) => {
+    num = num * 0.9
+    return String(num) + "р"
+})
 
-const product3 = {
-  name: "Monitor",
-  price: 300,
-  quantity: 5
-}
+console.log(discountNumbers)
+ */
 
 
-function restockProduct(product, quantity) {
-  product.quantity += quantity
-}
 
-function sellProduct(product, quantity) {
-  if (product.quantity >= quantity) {
-    product.quantity -= quantity
-  } else {
-    console.log("Такого количества нет в наличии")
-  }
-}
+/* Задача 4
+const users = [
+    { id: 1, firstName: 'Иван', lastName: 'Иванов', age: 25 },
+    { id: 2, firstName: 'Елена', lastName: 'Смирнова', age: 30 },
+    { id: 3, firstName: 'Алексей', lastName: 'Попов', age: 19 }
+];
 
-alert(`Общая стоимость всех товаров: ${product1.price + product2.price + product3.price}`)
+
+const newUsers = [...users].map((user) => {
+    let newUser = {id: user.id, fullName: user.firstName + " " + user.lastName, age: user.age}
+    return newUser
+})
+
+console.log(newUsers)
+*/
+
+
+
+/* Задача 5
+const words =  ['кот', 'собака', 'слон', 'жираф', 'тигр', 'бегемот']
+
+const longWords = words.filter(word => word.length > 4)
+
+console.log(longWords)
+*/
+
+
+
+/* Задача 6
+const products = [
+    { name: 'Ноутбук', price: 75000, inStock: true },
+    { name: 'Мышь', price: 1500, inStock: false },
+    { name: 'Клавиатура', price: 4500, inStock: true },
+    { name: 'Монитор', price: 22000, inStock: false }
+];
+
+
+const filteredProducts = products.filter(item => item.inStock === true && item.price < 50000)
+
+console.log(filteredProducts);
+*/
+
+
+
+/* Задача 7
+const transactions = [
+    { id: 1, category: 'Еда', amount: 500 },
+    { id: 2, category: 'Транспорт', amount: 150 },
+    { id: 3, category: 'Еда', amount: 1200 },
+    { id: 4, category: 'Развлечения', amount: 2000 },
+    { id: 5, category: 'Транспорт', amount: 300 }
+];
+
+
+const groupTransactions = transactions.reduce((newObj, item) => {
+    if (Object.hasOwn(newObj, item.category)) {
+        newObj[item.category].push({...item})
+    } else {
+        newObj[item.category] = [{...item}]
+    }
+
+    return newObj
+}, {})
+
+
+console.log(groupTransactions);
+*/
+
+
+
+/* Задача 8
+const students = [
+    { name: 'Ольга', grade: 92 },
+    { name: 'Максим', grade: 74 },
+    { name: 'Светлана', grade: 88 },
+    { name: 'Дмитрий', grade: 65 },
+    { name: 'Наталья', grade: 95 }
+];
+
+
+const bestStudentsInfo = students.filter(user => user.grade >= 85).reduce((newObj, user) => {
+    if (Object.hasOwn(newObj, 'sum') && Object.hasOwn(newObj, 'count')) {
+        newObj['sum'] += user.grade
+        newObj['count'] += 1
+    } else {
+        newObj['sum'] = user.grade
+        newObj['count'] = 1
+    }
+
+    return newObj
+}, {})
+
+
+console.log(bestStudentsInfo['sum'] / bestStudentsInfo['count'])
 */
 
 
 
 
+/* Задача 9
+const accounts = [
+    { login: 'user1', email: 'User1@Mail.ru', isActive: true },
+    { login: 'user2', email: 'USER2@mail.ru', isActive: false },
+    { login: 'user3', email: 'User3@Yandex.ru', isActive: true }
+];
 
 
 
-
-
-
-const client = {
-  name: "Alex",
-  balance: 2000,
-  creditLimit: 500,
-  debt: 0,
-  isBlocked: false
-}
-
-
-function showAccount(client) {
-  return `
-  Имя: ${client.name}
-  Баланс: ${client.balance}$
-  Можете взять в кредит: ${client.creditLimit}$
-  Задолженность: ${client.debt}$
-  Пользователь заблокирован: ${client.isBlocked ? "Да" : "Нет"}
-  `
-}
-
-function deposit(client, amount) {
-  if (amount < 0) {
-    alert("Некорректные данные")
-    return false
-  }
-
-  client.balance += amount
-}
-
-function whitdraw(client, amount) {
-  if (amount < 0) {
-    alert("Некорректные данные")
-    return false
-  }
-
-  client.balance -= amount
-}
-
-function takeCredit(client, amount) {
-  if (amount < 0) {
-    alert("Некорректные данные")
-    return false
-  }
-
-  if (client.creditLimit >= amount) {
-    client.creditLimit -= amount
-    client.debt += amount
-  } else {
-    alert("Вы не можете взять столько в кредит")
-  }
-}
-
-
-function repayCredit(client, amount) {
-  if (amount < 0) {
-    alert("Некорректные данные")
-    return false
-  }
-
-  if (amount > client.balance) {
-    amount = client.balance
-    client.balance -= client.balance
-  } else {
-    client.balance -= amount
-  }
-
-  if (amount > client.debt) {
-    client.creditLimit += client.debt
-    client.debt -= client.debt
-  } else {
-    client.creditLimit += amount
-    client.debt -= amount
-  }
-}
-
-
-function blockClient(client) {
-  client.isBlocked = true
-}
-
-function showMenu() {
-  let flag = true
-  while (flag) {
-    let userChoice = +prompt(`
-      1 - Проверить баланс
-      2 - Пополнить счёт
-      3 - Снять деньги
-      4 - Взять кредит
-      5 - Погасить кредит
-      6 - Заблокировать счёт
-      0 - выйти
-    `)
-    
-    switch (userChoice) {
-      case 1:
-        alert(showAccount(client))
-        break
-      case 2:
-        if (client.isBlocked) {
-          alert("Вы заблокированы")
-        } else {
-          amount = +prompt("Введите сумму для пополнения")
-          deposit(client, amount)
-          alert(showAccount(client))
-        }
-        break
-      case 3:
-        if (client.isBlocked) {
-          alert("Вы заблокированы")
-        } else {
-          amount = +prompt("Введите сумму для снятия с счёта")
-          if (amount > client.balance) {
-            const userWantCredit = prompt("На вашем счёте недостаточно денег. Хотите взять кредит? Ответь: Да или Нет")
-            if (userWantCredit === "Да") {
-              const creditAmount = +prompt(`Сколько вы хотите взять в кредит? Ваш кредитный лимит: ${client.creditLimit}`)
-              takeCredit(client, creditAmount)
-            }
-          } else {
-            whitdraw(client, amount)
-          }
-          alert(showAccount(client))
-        }
-        break
-      case 4:
-        if (client.isBlocked) {
-          alert("Вы заблокированы")
-        } else {
-          amount = +prompt(`Сколько вы хотите взять в кредит? Ваш кредитный лимит: ${client.creditLimit}`)
-          takeCredit(client,amount)
-          alert(showAccount(client))
-        }
-        break
-      case 5:
-        if (client.isBlocked) {
-          alert("Вы заблокированы")
-        } else {
-          amount = +prompt("На какую сумму вы хотите погасить кредит?")
-          repayCredit(client,amount)
-          alert(showAccount(client))
-        }
-        break
-      case 6:
-        alert("Клиент заблокирован")
-        blockClient(client)
-        break
-      case 0:
-        flag = false
+const activeAccounts = accounts.reduce((array, user) => {
+    if (user.isActive) {
+        array.push(user.email.toLowerCase())
     }
-  }
-}
 
-showMenu()
+    return array
+}, [])
+
+
+console.log(activeAccounts)
+*/
